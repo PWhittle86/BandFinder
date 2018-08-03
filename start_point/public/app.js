@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 const makeAPIRequest = function(url, callback){
   const request = new XMLHttpRequest();
   request.open('GET', url);
@@ -62,10 +64,8 @@ const populateEventInfo = function(json){
 
 		gigInfo.appendChild(eventList);
 	}
-
 	
 }
-
 
 window.addEventListener('load', function(){
 
