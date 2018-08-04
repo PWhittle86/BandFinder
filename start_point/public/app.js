@@ -1,5 +1,3 @@
-const _ = require("lodash");
-
 const makeAPIRequest = function(url, callback){
   const request = new XMLHttpRequest();
   request.open('GET', url);
@@ -31,9 +29,10 @@ const eventInfoRequestComplete = function(apiResponse){
 }
 
 const populateEventInfo = function(json){
-	const gigInfo = document.getElementById('giginfo');
 
-	debugger;
+	const mapWrapper = new MapWrapper('map', 49, 21, 4);
+
+	const gigInfo = document.getElementById('giginfo');
 
 	const eventHeading = document.createElement('h3');
 	eventHeading.innerText = 'Upcoming Gigs'
@@ -45,31 +44,38 @@ const populateEventInfo = function(json){
 
 		const sortedDateTime = _.split(event.datetime, 'T');
 
-		debugger;
-
-		const eventDateTime = document.createElement('li');
-		eventDateTime.innerText = event.datetime;
+		const eventTime = document.createElement('li');
+		eventTime.innerText = "Date: " + sortedDateTime[0];
+		const eventDate = document.createElement('li');
+		eventDate.innerText = "Time" + sortedDateTime[1];
 
 		const eventVenueName = document.createElement('li');
 		eventVenueName.innerText = 'Venue: ' + event.venue.name;
+
 		const eventCity = document.createElement('li');
 		eventCity.innerText = 'City: ' + event.venue.city;
+
 		const eventCountry = document.createElement('li');
 		eventCountry.innerText = 'Country: ' + event.venue.country;
 
-		eventList.appendChild(eventDateTime);
+		mapWrapper.addMarker(event.venue.latitude, event.venue.longitude);
+
+		eventList.appendChild(eventTime);
+		eventList.appendChild(eventDate);
 		eventList.appendChild(eventVenueName);
 		eventList.appendChild(eventCity);
 		eventList.appendChild(eventCountry);
 
 		gigInfo.appendChild(eventList);
 	}
-	
 }
+
+// const appender = function(eventTime, eventDate, eventVenueName, eventCity, eventCountry){
+	
+// }
 
 window.addEventListener('load', function(){
 
-  const mapWrapper = new MapWrapper('map', 49, 21, 4);
   const bandSearch = document.getElementById('bandsearch');
 
   bandSearch.addEventListener('submit', function(event){
