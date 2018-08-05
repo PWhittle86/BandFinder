@@ -15,8 +15,10 @@ const populateBandInfo = function(json){
 	const bandImage = document.createElement('img');
 	bandImage.src = json.image_url;
 
+	const imageTextWrapper = document.getElementById('imageText');
+	imageTextWrapper.innerText = json.name;
+
 	bandImageWrapper.appendChild(bandImage);
-	bandTitle.appendChild(bandName);
 }
 
 const eventInfoRequestComplete = function(apiResponse){
@@ -41,7 +43,7 @@ const populateEventInfo = function(json){
 		const eventTime = document.createElement('li');
 		eventTime.innerText = "Date: " + sortedDateTime[0];
 		const eventDate = document.createElement('li');
-		eventDate.innerText = "Time" + sortedDateTime[1];
+		eventDate.innerText = "Time: " + sortedDateTime[1];
 		const eventVenueName = document.createElement('li');
 		eventVenueName.innerText = 'Venue: ' + event.venue.name;
 		const eventCity = document.createElement('li');
@@ -75,5 +77,5 @@ window.addEventListener('load', function(){
 	makeAPIRequest(artistRequestURL, bandInfoRequestComplete);
 	makeAPIRequest(eventRequestURL, eventInfoRequestComplete);
 	})
-	
 });
+

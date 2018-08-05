@@ -17,14 +17,22 @@ header{
 
 h1{
 	margin: 0;
+	font-size: 60px;
 }
 
 h3{
 	margin-top: 0;
+	text-align: center;
 }
 
 li{
 	margin: 0;
+}
+
+ul{
+	list-style-type: none;
+	padding: 0;
+	text-align: center;
 }
 
 footer{
@@ -66,17 +74,44 @@ img {
 }
 
 #bandImage{
+	position: relative;
 	max-height: 400px;
 	max-width:400px;
+	padding-right: 10px;
+}
+
+#bandImage:hover #imageText{
+	opacity: 1;
+}
+
+#textContainer{
+	position: absolute;
+	height: 400px;
+	width: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#imageText{
+	color: white;
+	opacity: 0;
+}
+
+#bandImage:onHover{
+
 }
 
 #map{
+	padding-left: 5px;
+	padding-right: 5px;
   	width: 400px;
   	height: 400px;
   	z-index: 0;
 }
 
 #events{
+	padding-left: 10px;
 	max-height: 400px;
 	max-width:400px;
   	width: auto;
