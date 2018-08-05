@@ -29,7 +29,7 @@ const eventInfoRequestComplete = function(apiResponse){
 }
 
 const populateEventInfo = function(json){
-	const mapWrapper = new MapWrapper('map', 22, 0, 2);
+	const mapWrapper = new MapWrapper('map', 37, 8, 1);
 	const gigInfo = document.getElementById('events');
 
 	const eventHeading = document.createElement('h3');
