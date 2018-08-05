@@ -15,6 +15,8 @@ const populateBandInfo = function(json){
 	const bandImage = document.createElement('img');
 	bandImage.src = json.image_url;
 
+	debugger;
+
 	const imageTextWrapper = document.getElementById('imageText');
 	imageTextWrapper.innerText = json.name;
 

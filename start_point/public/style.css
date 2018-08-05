@@ -1,19 +1,17 @@
 body{
 	margin: 0;
 	height: 100%;
-	background-color: #4F5D75;
+	background-color: #070F28;
 	font-family: 'Dosis', sans-serif;
 }
 
 header{
 	display: flex;
 	justify-content: center;
-	background-color: #2D3142;
-	color: #EF8354;
+	background-color: #0E1428;
+	color: #FFB30F;
 	margin: 0;
-	font-family: 'Dosis', sans-serif;
-	font-weight: bold;
-}
+	font-family: 'Dosis', sans-serif;}
 
 h1{
 	margin: 0;
@@ -40,8 +38,8 @@ footer{
 	z-index: 1;
 	width: 100%;
 	bottom: 0;
-	background-color: #2D3142;
-	color: #EF8354;
+	background-color: #0E1428;
+	color: #FFB30F;
 	margin: 0;
 	font-family: 'Dosis', sans-serif;
 	font-style: italic;
@@ -52,6 +50,10 @@ footer{
 img {
 	max-width: 400px;
 	max-height: auto;
+}
+
+a, a:visited{
+     color: #FFB30F;
 }
 
 #searchWrapper{
@@ -74,6 +76,9 @@ img {
 }
 
 #bandImage{
+	transition: filter .5s ease-in-out;
+  	-webkit-filter: grayscale(0%);
+  	filter: grayscale(0%);
 	position: relative;
 	max-height: 400px;
 	max-width:400px;
@@ -81,7 +86,13 @@ img {
 }
 
 #bandImage:hover #imageText{
-	opacity: 1;
+  	transition: opacity 500ms;
+	opacity: 0.8;
+}
+
+#bandImage:hover{
+	-webkit-filter: grayscale(100%);
+  	filter: grayscale(100%);
 }
 
 #textContainer{
@@ -95,11 +106,9 @@ img {
 
 #imageText{
 	color: white;
+	background-color: black;
 	opacity: 0;
-}
-
-#bandImage:onHover{
-
+	font-size: 50px;
 }
 
 #map{
@@ -114,7 +123,6 @@ img {
 	padding-left: 10px;
 	max-height: 400px;
 	max-width:400px;
-  	width: auto;
   	color: #EF8354;
   	overflow: scroll;
 }
