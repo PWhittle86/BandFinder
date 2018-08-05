@@ -5,6 +5,6 @@ const MapWrapper = function(element, lat, lng, zoom){
   this.map = L.map(element, {worldCopyJump: true}).addLayer(osm).setView([lat, lng], zoom);
 };
 
-MapWrapper.prototype.addMarker = function(lat, lng) {
-	L.marker([lat, lng]).addTo(this.map);
+MapWrapper.prototype.addMarker = function(lat, lng, eventdetails) {
+	L.marker([lat, lng], {opacity: 0.75}).bindPopup(eventdetails).addTo(this.map);
 };

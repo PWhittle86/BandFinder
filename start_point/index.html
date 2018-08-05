@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>GigFinder</title>
     <link rel='stylesheet' type='text/css' href='style.css'>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <script src='app.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
     <script src='mapWrapper.js'></script>
@@ -15,17 +16,35 @@
   </head>
 
   <header>
-  	<h1>GigFinder</h1>
+    <h1>GigFinder</h1>
   </header>
 
   <body>
-    <form id ='bandsearch'>
-      <input name="bandSearch">
+
+    <div id='searchWrapper'>
+      <form id ='bandsearch'>
+      <input name='bandSearch'>
       <input type='submit' value='Submit'>
-    </form>
-  	<div id='map'></div>
-  	<div id='bandinfo'></div>
-  	<div id='giginfo'></div>
+      </form>
+    </div>
+
+    <div id='contentWrapper'>
+      <div id='giginfo'>
+        <div id='bandImage'></div>
+        <div id='map'></div>
+        <div id='events'></div>
+      </div>
+    </div>
+
   </body>
+
+<footer>
+  <ul id='footerlist'>
+    <li>GigFinder is powered by the BandsInTown API. Visit <a href="www.bandsintown.com">BandsInTown</a> for more information about bands in your local area!</li>
+    <li>Site created by Peter Whittle.</li>
+    <li>E-Mail: peterwhittle75@gmail.com</li>
+    <li>Github: https://github.com/PWhittle86/Homework12-5</li>
+  </ul>
+</footer>
 
 </html>

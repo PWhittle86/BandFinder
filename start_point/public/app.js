@@ -11,28 +11,22 @@ const bandInfoRequestComplete = function(apiResponse){
 }
 
 const populateBandInfo = function(json){
-	const bandInfo = document.getElementById('bandinfo');
-
-	const bandName = document.createElement('h3');
-	bandName.innerText = json.name;
+	const bandImageWrapper = document.getElementById('bandImage');
 	const bandImage = document.createElement('img');
 	bandImage.src = json.image_url;
 
-	bandInfo.appendChild(bandImage);
-	bandInfo.appendChild(bandName);
+	bandImageWrapper.appendChild(bandImage);
+	bandTitle.appendChild(bandName);
 }
 
 const eventInfoRequestComplete = function(apiResponse){
 	const json = JSON.parse(apiResponse.target.response);
-	
 	populateEventInfo(json);
 }
 
 const populateEventInfo = function(json){
-
-	const mapWrapper = new MapWrapper('map', 49, 21, 4);
-
-	const gigInfo = document.getElementById('giginfo');
+	const mapWrapper = new MapWrapper('map', 22, 0, 2);
+	const gigInfo = document.getElementById('events');
 
 	const eventHeading = document.createElement('h3');
 	eventHeading.innerText = 'Upcoming Gigs'
@@ -48,17 +42,12 @@ const populateEventInfo = function(json){
 		eventTime.innerText = "Date: " + sortedDateTime[0];
 		const eventDate = document.createElement('li');
 		eventDate.innerText = "Time" + sortedDateTime[1];
-
 		const eventVenueName = document.createElement('li');
 		eventVenueName.innerText = 'Venue: ' + event.venue.name;
-
 		const eventCity = document.createElement('li');
 		eventCity.innerText = 'City: ' + event.venue.city;
-
 		const eventCountry = document.createElement('li');
 		eventCountry.innerText = 'Country: ' + event.venue.country;
-
-		mapWrapper.addMarker(event.venue.latitude, event.venue.longitude);
 
 		eventList.appendChild(eventTime);
 		eventList.appendChild(eventDate);
@@ -67,12 +56,12 @@ const populateEventInfo = function(json){
 		eventList.appendChild(eventCountry);
 
 		gigInfo.appendChild(eventList);
+
+		mapWrapper.addMarker(event.venue.latitude, event.venue.longitude, function(){
+			return sortedDateTime[0] + '<br>' + sortedDateTime[1] + '<br>' + eventVenueName.innerText + '<br>' + eventCity.innerText;
+		});
 	}
 }
-
-// const appender = function(eventTime, eventDate, eventVenueName, eventCity, eventCountry){
-	
-// }
 
 window.addEventListener('load', function(){
 
