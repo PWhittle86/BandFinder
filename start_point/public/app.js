@@ -34,10 +34,21 @@ const populateEventInfo = function(json){
 
 	const eventHeading = document.createElement('h3');
 	eventHeading.innerText = 'Upcoming Gigs'
-
 	gigInfo.appendChild(eventHeading);
 
-	for(event of json){
+	debugger;
+
+	if(json.length == 0){
+
+			const eventList = document.createElement('ul')
+			const noEvents = document.createElement('li');
+			noEvents.innerText = `Sorry, there are no upcoming events for this artist!`
+
+			eventList.appendChild(noEvents);
+			gigInfo.appendChild(eventList);
+
+		}else{for(event of json){
+
 		const eventList = document.createElement('ul')
 
 		const sortedDateTime = _.split(event.datetime, 'T');
@@ -63,8 +74,7 @@ const populateEventInfo = function(json){
 
 		mapWrapper.addMarker(event.venue.latitude, event.venue.longitude, function(){
 			return sortedDateTime[0] + '<br>' + sortedDateTime[1] + '<br>' + eventVenueName.innerText + '<br>' + eventCity.innerText;
-		});
-	}
+	});}}
 }
 
 window.addEventListener('load', function(){

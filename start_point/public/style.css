@@ -8,8 +8,8 @@ body{
 header{
 	display: flex;
 	justify-content: center;
-	background-color: #0E1428;
-	color: #FFB30F;
+	background-color: #FFFFFF;
+	color: #0E1428;
 	margin: 0;
 	font-family: 'Dosis', sans-serif;}
 
@@ -39,7 +39,7 @@ footer{
 	width: 100%;
 	bottom: 0;
 	background-color: #0E1428;
-	color: #FFB30F;
+	color: #FFFFFF;
 	margin: 0;
 	font-family: 'Dosis', sans-serif;
 	font-style: italic;
@@ -47,13 +47,17 @@ footer{
 	padding: 0;
 }
 
+#bandsInTownLink, #bandsInTownLink:visited{
+	color: #FFFFFF;
+}
+
 img {
 	max-width: 400px;
 	max-height: auto;
 }
 
-a, a:visited{
-     color: #FFB30F;
+#title, #title:visited{
+     color: #0E1428;
 }
 
 #searchWrapper{
@@ -105,7 +109,7 @@ a, a:visited{
 }
 
 #imageText{
-	color: white;
+	color: #FFFFFF;
 	background-color: black;
 	opacity: 0;
 	font-size: 50px;
@@ -123,7 +127,7 @@ a, a:visited{
 	padding-left: 10px;
 	max-height: 400px;
 	max-width:400px;
-  	color: #EF8354;
+  	color: #FFFFFF;
   	overflow: scroll;
 }
 
